@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Tetris-Clone/Tetris-Clone.vcxproj" Id="b20d142a-556c-4b3f-9479-cfd6b7664ff9" />
+</Solution>
