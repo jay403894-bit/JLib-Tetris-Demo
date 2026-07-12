@@ -3,6 +3,7 @@
 #include <memory>
 #include <DirectXMath.h>
 #include <Renderer2D.h>
+#include <ResourceManager.h>
 #include <Camera2D.h>
 #include <InputManager.h>
 #include <GetTime.h>
@@ -17,7 +18,7 @@
 class GameplayScene : public Scene
 {
 public:
-	GameplayScene(JLib::Time& time,JLib::Renderer2D& renderer, std::shared_ptr<JLib::InputManager> input, JLib::Camera2D& camera,
+	GameplayScene( JLib::Time& time, JLib::Renderer2D& renderer, std::shared_ptr<JLib::InputManager> input, JLib::Camera2D& camera,
 	              JLib::Mesh* quadMesh, JLib::TextureHandle tileTexture, uint32_t width, uint32_t height);
 
 	void Update(bool& isRunning, float dt = 0.0f) override;
@@ -48,8 +49,8 @@ private:
 	int score = 0;
 	double lastUpdateTime = 0.0;
 	bool isGameOver = false;
-	SoundManager sound;
-	SoundHandle music;
+	JLib::SoundManager sound;
+	JLib::SoundHandle music;
 	std::vector<Block> blocks;
 	std::vector<CMD> cmdQ;
 	JLib::Renderer2D& renderer;

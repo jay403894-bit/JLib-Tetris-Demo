@@ -11,10 +11,11 @@
 
 using namespace JLib;
 
-GameplayScene::GameplayScene(Time& time, JLib::Renderer2D& renderer, std::shared_ptr<JLib::InputManager> input, JLib::Camera2D& camera,
+GameplayScene::GameplayScene(
+                             JLib::Time& time, JLib::Renderer2D& renderer, std::shared_ptr<JLib::InputManager> input, JLib::Camera2D& camera,
                              JLib::Mesh* quadMesh, JLib::TextureHandle tileTexture, uint32_t width, uint32_t height)
-	: renderer(renderer)
-	, time(&time)
+	: time(&time)
+	, renderer(renderer)
 	, input(input)
 	, camera(camera)
 	, quadMesh(quadMesh)
@@ -37,9 +38,8 @@ GameplayScene::GameplayScene(Time& time, JLib::Renderer2D& renderer, std::shared
 	if (!sound.Initialize(1)) {
 		throw("failed to initialize sound on thread 1");
 	}
-#include <Helpers.h>  // already included
 
-	music = sound.PlayLoop(JLib::ExeRelativeA("sound\\tomasz-kucza-chiptune-tchaikovsky.mp3").c_str());	
+	music = sound.PlayLoop(JLib::ExeRelativeA("sound\\tomasz-kucza-chiptune-tchaikovsky.mp3").c_str());
 	if (!music.IsValid()) {
 		throw("PlayLoop(\"music.mp3\") failed to load -- put a real file next to the exe to test.\n");
 	}
